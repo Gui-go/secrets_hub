@@ -1,0 +1,17 @@
+name: DockerHub Login
+
+on: [push]
+
+jobs:
+  login-dockerhub:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to DockerHub
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
+      - name: Confirm login
+        run: docker info
