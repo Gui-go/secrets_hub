@@ -1,1 +1,9 @@
-env
+
+
+
+
+
+
+*.terraform/
+*.hcl
+*.tfstate*
